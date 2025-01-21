@@ -51,7 +51,8 @@
   <script>
     // Function to send commands to ESP32
     function sendCommand(command) {
-      fetch(`/control?${command}`)
+      const esp32Url = "http://192.168.4.1"; // Replace with your ESP32's IP address
+      fetch(`${esp32Url}/control?${command}`)
         .then(response => response.text())
         .then(data => {
           console.log(data); // Log the ESP32's response
