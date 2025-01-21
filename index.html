@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Steering Wheel Control</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f9;
+        }
+        .control-buttons {
+            margin: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .toggle-on {
+            background-color: #28a745;
+        }
+        .toggle-off {
+            background-color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <h1>Steering Wheel Control</h1>
+    <div class="control-buttons">
+        <button id="leftButton">Move Left</button>
+        <button id="rightButton">Move Right</button>
+    </div>
+    <button id="toggleButton" class="toggle-off">OFF</button>
+
+    <script>
+        const leftButton = document.getElementById('leftButton');
+        const rightButton = document.getElementById('rightButton');
+        const toggleButton = document.getElementById('toggleButton');
+
+        leftButton.addEventListener('click', () => {
+            console.log('Steering wheel moved left');
+        });
+
+        rightButton.addEventListener('click', () => {
+            console.log('Steering wheel moved right');
+        });
+
+        toggleButton.addEventListener('click', () => {
+            const isOn = toggleButton.classList.contains('toggle-on');
+
+            if (isOn) {
+                toggleButton.classList.remove('toggle-on');
+                toggleButton.classList.add('toggle-off');
+                toggleButton.textContent = 'OFF';
+                console.log('System turned OFF');
+            } else {
+                toggleButton.classList.remove('toggle-off');
+                toggleButton.classList.add('toggle-on');
+                toggleButton.textContent = 'ON';
+                console.log('System turned ON');
+            }
+        });
+    </script>
+</body>
+</html>
